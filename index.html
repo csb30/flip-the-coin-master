@@ -50,7 +50,7 @@
 
     h1 {
       font-size: 64px;
-      text-shadow: 2px 2px 0px #35383f;
+      text-shadow: 3px 3px 0px #35383f;
       -webkit-text-stroke-width: 3px;
       -webkit-text-stroke-color: #35383f;
     }
@@ -88,7 +88,17 @@
   </style>
 
   <script>
+    window.onload = () => {
+      document.getElementById("btn").addEventListener("click", flip);
+    };
     
+
+    function flip() {
+      const result = Math.random() < 0.5 ? "Heads" : "Tails";
+      document.querySelector("#result").textContent = result;
+      document.querySelector("#coin").src = result === "Heads" ? "resources/heads.svg" : "resources/tails.svg"
+      return result;
+    }
   </script>
 </head>
 
@@ -101,12 +111,12 @@
 
     <h2>Press the coin or the button to flip the coin</h2>
 
-    <img src="resources/heads.svg">
+    <img id="coin" src="resources/heads.svg">
     <img src="resources/shadow.svg">
 
-    <h2>Heads Tails</h2>
-    
-    <button>RANDOM</button>
+    <h2 id="result">Heads</h2>
+
+    <button id="btn">RANDOM</button>
   </div>
 
 
