@@ -85,6 +85,10 @@
     img {
       margin-bottom: 25px;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 
   <script>
@@ -94,10 +98,10 @@
     
 
     function flip() {
-      const result = Math.random() < 0.5 ? "Heads" : "Tails";
-      document.querySelector("#result").textContent = result;
-      document.querySelector("#coin").src = result === "Heads" ? "resources/heads.svg" : "resources/tails.svg"
-      return result;
+      const result = Math.random() < 0.5;;
+      document.querySelector("#result").textContent = result ? "Heads" : "Tails";
+      document.querySelector("#heads").className = !result ? "hidden" : "";
+      document.querySelector("#tails").className = result ? "hidden" : "";
     }
   </script>
 </head>
@@ -111,7 +115,8 @@
 
     <h2>Press the coin or the button to flip the coin</h2>
 
-    <img id="coin" src="resources/heads.svg">
+    <img id="heads" src="resources/heads.svg">
+    <img id="tails" class="hidden" src="resources/tails.svg">
     <img src="resources/shadow.svg">
 
     <h2 id="result">Heads</h2>
